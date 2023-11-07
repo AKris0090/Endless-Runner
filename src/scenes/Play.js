@@ -34,8 +34,12 @@ class Play extends Phaser.Scene {
         this.playerJet.setCollideWorldBounds(true);
         this.playerJet.setGravity(0, this.gravity);
 
+        // play anims
+        this.playerJet.anims.play('jet', true);
+
         // draw order (for trail)
         this.playerJet.depth = 2;
+        this.playerJet.body.setFriction(0);
 
         // define keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -186,9 +190,6 @@ class Play extends Phaser.Scene {
             // rotate to face the direction of player movement
             this.playerJet.setRotation(this.playerJet.body.velocity.y * 0.0003);
 
-            // play anims, if not alr playing
-            this.playerJet.anims.play('jet', true);
-
             // spawn trailing particles if in second phase
             if(this.secondStage) {
                 this.trailParticles(this.playerJet);
@@ -205,6 +206,9 @@ class Play extends Phaser.Scene {
             this.background2.tilePositionX += 0.5;
             this.background3.tilePositionX += 2;
             this.background4.tilePositionX += 5;
+
+            //bug fix #2
+            this.playerJet.setVelocityX(0);
         }
 
         // check key input for restart

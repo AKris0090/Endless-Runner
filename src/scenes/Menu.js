@@ -6,18 +6,18 @@ class Menu extends Phaser.Scene {
     preload() {
         // load images/tile sprites
         this.load.image('trailPart', './assets/partTrail.png');
-        this.load.image('1', './assets/Background-1.png');
-        this.load.image('2', './assets/Background-2.png');
-        this.load.image('3', './assets/Background-3.png');
-        this.load.image('4', './assets/Background-4.png');
+        this.load.image('1', './assets/background/Background-1.png');
+        this.load.image('2', './assets/background/Background-2.png');
+        this.load.image('3', './assets/background/Background-3.png');
+        this.load.image('4', './assets/background/Background-4.png');
 
         this.load.atlas('emitterexplosion', './assets/explosion-realistic.png', './assets/explosion.json');
 
         // load audio
-        this.load.audio('sfx_select', './assets/Menu-Startup.wav');
-        this.load.audio('explosion', './assets/explosionfinal.wav');
-        this.load.audio('switchGravDown', './assets/switchGrav - down.wav');
-        this.load.audio('switchGravUp', './assets/switchGrav - up.wav');
+        this.load.audio('sfx_select', './assets/sfx/Menu-Startup.wav');
+        this.load.audio('explosion', './assets/sfx/explosionfinal.wav');
+        this.load.audio('switchGravDown', './assets/sfx/switchGrav - down.wav');
+        this.load.audio('switchGravUp', './assets/sfx/switchGrav - up.wav');
 
         // Menu music soundtrack
         this.load.audio('menu_music', './assets/Music/Synthwave_Menu.mp3');
@@ -115,7 +115,7 @@ class Menu extends Phaser.Scene {
         // Create rocket/barrier anims
         this.anims.create({
             key: 'jet',
-            frameRate: 5,
+            frameRate: 12,
             repeat: -1,
             frames: this.anims.generateFrameNumbers('rocket', {
                 start: 0,
@@ -125,7 +125,7 @@ class Menu extends Phaser.Scene {
 
         this.anims.create({
             key: 'zap',
-            frameRate: 24,
+            frameRate: 15,
             repeat: -1,
             frames: this.anims.generateFrameNumbers('barrier', {
                 start: 0,
